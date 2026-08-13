@@ -1,0 +1,113 @@
+---
+// BlankSection.astro - Customizable Blank Section Component
+interface Props {
+  id?: string;
+  badge?: string;
+  title?: string;
+  description?: string;
+}
+
+const {
+  id = "blank-section",
+  badge = "FEATURE PLACEHOLDER",
+  title = "Blank Section Container",
+  description = "A flexible, responsive section layout ready for your custom components, interactive widgets, or content cards.",
+} = Astro.props;
+---
+
+<section
+  id={id}
+  class="relative py-24 sm:py-32 bg-[#0a0e24] text-white overflow-hidden border-t border-b border-white/10"
+>
+  <!-- Subtle Glowing Grid Background -->
+  <div
+    class="absolute inset-0 bg-[radial-gradient(#a4e500_1px,transparent_1px)] [bg-size:32px_32px] opacity-[0.04] pointer-events-none"
+  >
+  </div>
+
+  <!-- Glowing Radial Gradient Orbs -->
+  <div
+    class="absolute -top-24 -left-24 w-96 h-96 bg-[#a4e500]/10 rounded-full blur-3xl pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"
+  >
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <span
+        class="inline-block px-3.5 py-1.5 mb-4 text-xs font-bold tracking-widest text-[#a4e500] uppercase bg-[#a4e500]/10 border border-[#a4e500]/20 rounded-full font-['Michroma',sans-serif]"
+      >
+        {badge}
+      </span>
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-5 font-['Plus_Jakarta_Sans',sans-serif]"
+      >
+        {title}
+      </h2>
+      <p
+        class="text-base sm:text-lg text-slate-400 leading-relaxed font-normal"
+      >
+        {description}
+      </p>
+    </div>
+
+    <!-- Main Content Area / Default Glass Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        [
+          {
+            icon: "⚡",
+            tag: "Interactive Module",
+            heading: "Dynamic GSAP Ready",
+            desc: "Designed to seamlessly host interactive GSAP timelines, canvas visuals, or React hydration components.",
+          },
+          {
+            icon: "💎",
+            tag: "Glassmorphism UI",
+            heading: "Modern Aesthetic",
+            desc: "Crafted with backdrop blur filters, glowing gradient borders, and sleek dark mode typography.",
+          },
+          {
+            icon: "🚀",
+            tag: "Flexible Layout",
+            heading: "Customizable Slots",
+            desc: "Easily replace these default placeholder cards with your tailored content, forms, or data views.",
+          },
+        ].map((card, i) => (
+          <div class="group relative p-8 rounded-2xl bg-white/3 border border-white/10 backdrop-blur-md hover:border-[#a4e500]/50 hover:bg-white/6 transition-all duration-300 shadow-xl flex flex-col justify-between">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-linear-to-bl from-[#a4e500]/10 to-transparent rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-[#a4e500]/20 group-hover:border-[#a4e500]/40 transition-all">
+                {card.icon}
+              </div>
+              <span class="text-xs font-semibold tracking-wider text-[#a4e500] uppercase mb-2 block font-['Michroma',sans-serif]">
+                {card.tag}
+              </span>
+              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-[#a4e500] transition-colors">
+                {card.heading}
+              </h3>
+              <p class="text-sm text-slate-400 leading-relaxed font-light">
+                {card.desc}
+              </p>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 group-hover:text-white transition-colors">
+              <span>Slot Placeholder 0{i + 1}</span>
+              <span class="text-[#a4e500] group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Optional Slot for Custom Injected Content -->
+    <slot />
+  </div>
+</section>

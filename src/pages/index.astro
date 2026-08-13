@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import WhyBpmpSection from "../components/WhyBpmpSection";
+import TherapySection from "../components/TherapySection";
+import BlankSection from "../components/BlankSection.astro";
+---
+
+<Layout title="Interactive Web - BPMP & Therapy Experience">
+  <section id="why-bpmp">
+    <WhyBpmpSection client:load />
+  </section>
+
+  <BlankSection
+    id="services"
+    badge="INNOVATION & DESIGN"
+    title="Custom Interactive Workspace"
+    description="A sleek, responsive blank section container integrated cleanly between your interactive GSAP sections."
+  />
+
+  <section id="therapy">
+    <TherapySection client:load />
+  </section>
+</Layout>
