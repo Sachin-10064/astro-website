@@ -18,7 +18,11 @@ const {
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={`${import.meta.env.BASE_URL}favicon.svg`}
+    />
     <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
@@ -32,9 +36,11 @@ const {
       rel="stylesheet"
     />
   </head>
-  <body class="bg-[#0d1330] text-slate-100 font-['Jost',sans-serif] antialiased selection:bg-[#a4e500] selection:text-[#101744] overflow-x-hidden min-h-screen flex flex-col">
+  <body
+    class="bg-[#0d1330] text-slate-100 font-['Jost',sans-serif] antialiased selection:bg-[#a4e500] selection:text-[#101744] overflow-x-hidden min-h-screen flex flex-col"
+  >
     <Header />
-    <main class="flex-1 w-full pt-20">
+    <main class="flex-1 w-full">
       <slot />
     </main>
     <Footer />
