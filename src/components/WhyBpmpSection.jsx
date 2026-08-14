@@ -59,7 +59,7 @@ export default function WhyBpmpSection({
   const imgRefs = useRef([]);
   const stepRefs = useRef([]);
 
-  const [activeIndex, setActiveIndex] = useState(1); // Default active index set to 1 (02) as in reference image
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const isScrollingRef = useRef(false);
 
@@ -184,7 +184,6 @@ export default function WhyBpmpSection({
         <div className="mb-4 sm:mb-6">
           <h2
             className="eyebrow m-0 mb-3 font-black tracking-wider text-[clamp(2.5rem,5vw,5rem)] leading-tight uppercase text-[#101744]"
-            style={{ fontFamily: "'Michroma', 'Orbitron', sans-serif", letterSpacing: '0.04em' }}
           >
             {title}
           </h2>
